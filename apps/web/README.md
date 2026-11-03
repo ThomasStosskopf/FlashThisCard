@@ -1,4 +1,4 @@
-FlashThisCard
+<h1>FlashThisCard</h1>
 
 <img width="1920" height="943" alt="image" src="https://github.com/user-attachments/assets/665c8c91-8ef3-406c-867a-08dc59291449" />
 
@@ -9,7 +9,7 @@ FlashThisCard is a personal software development project inspired by application
 
 The project is currently under development, with a focus on building a solid and scalable architecture while progressively implementing its core features.
 
-Project Goals
+<h2>Project Goals</h2>
 
 The main objective of FlashThisCard is to develop a cross-platform learning application that allows users to:
 
