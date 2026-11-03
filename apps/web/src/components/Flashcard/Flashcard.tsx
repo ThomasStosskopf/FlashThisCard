@@ -4,14 +4,19 @@ import './Flashcard.css'
 
 type FlashcardProps = {
   card: FlashcardType
+  onReveal: () => void
 }
 
-function Flashcard({ card }: FlashcardProps) {
+function Flashcard({ card, onReveal  }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
 
-  function handleFlip() {
-    setIsFlipped(!isFlipped)
+function handleFlip() {
+  if (!isFlipped) {
+    onReveal()
   }
+
+  setIsFlipped(!isFlipped)
+}
 
   return (
     <div className="flashcard-container">

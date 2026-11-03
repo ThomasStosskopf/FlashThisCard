@@ -26,3 +26,27 @@
   border-radius: 999px;
   transition: width 0.3s ease;
 }
+
+.rating-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px auto;
+}
+
+.rating-buttons button {
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.rating-buttons button:hover {
+  background-color: var(--surface-hover);
+  transform: translateY(-2px);
+}
