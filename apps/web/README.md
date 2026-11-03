@@ -1,32 +1,26 @@
-# React + TypeScript + Vite
+FlashThisCard
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<img width="1920" height="943" alt="image" src="https://github.com/user-attachments/assets/665c8c91-8ef3-406c-867a-08dc59291449" />
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A cross-platform flashcard application designed to make learning and memorization easier.
 
-## React Compiler
+FlashThisCard is a personal software development project inspired by applications such as Anki. Its goal is to provide a simple, intuitive, and customizable learning environment where users can create flashcards, organize them into decks, and review them through active recall.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The project is currently under development, with a focus on building a solid and scalable architecture while progressively implementing its core features.
 
-## Expanding the Oxlint configuration
+Project Goals
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+The main objective of FlashThisCard is to develop a cross-platform learning application that allows users to:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+Create personalized flashcards with a question and an answer.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Organize flashcards into thematic decks.
+
+Review cards using an interactive learning interface.
+
+Track learning progress through visual indicators.
+
+Build consistent learning habits through regular revision sessions.
+
+The long-term goal is to provide a flexible learning tool accessible across multiple platforms.
