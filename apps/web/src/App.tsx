@@ -1,4 +1,5 @@
 import './App.css'
+import FlashcardSession from './components/FlashcardSession/FlashcardSession'
 
 const decks = [
   {
