@@ -1,5 +1,6 @@
 import './App.css'
 import FlashcardSession from './components/FlashcardSession/FlashcardSession'
+import { useState } from 'react'
 
 const decks = [
   {
@@ -35,6 +36,25 @@ const decks = [
 ]
 
 function App() {
+  const [activeDeck, setActiveDeck] = useState<number | null>(null)
+    // Gestion de la session de révision
+  if (activeDeck !== null) {
+    const selectedDeck = decks.find((deck) => deck.id === activeDeck)
+
+    if (!selectedDeck) {
+      return null
+    }
+
+    return (
+      <FlashcardSession
+        deckId={selectedDeck.id}
+        deckTitle={selectedDeck.title}
+        onExit={() => setActiveDeck(null)}
+      />
+    )
+  }
+
+  // Affichage du tableau de bord
   return (
     <main className="app">
       <aside className="sidebar">
@@ -191,6 +211,7 @@ function App() {
                       className="review-button"
                       type="button"
                       aria-label={`Réviser ${deck.title}`}
+                      onClick={() => setActiveDeck(deck.id)}
                     >
                       Réviser <span>→</span>
                     </button>

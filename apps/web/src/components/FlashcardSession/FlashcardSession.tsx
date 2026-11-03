@@ -68,7 +68,7 @@ function FlashcardSession({
         Carte {currentCardIndex + 1} / {cards.length}
       </p>
 
-      <Flashcard card={currentCard} />
+      <Flashcard key={currentCard.id} card={currentCard} />
 
       <button type="button" onClick={handleNextCard}>
         {currentCardIndex === cards.length - 1
