@@ -2,6 +2,8 @@ import { useState } from 'react'
 //import type { Flashcard as FlashcardType } from '../../types/flashcard'
 import Flashcard from '../Flashcard/Flashcard'
 import { mockCards } from '../../data/mockCards'
+import './FlashcardSession.css'
+
 
 type FlashcardSessionProps = {
   deckId: number
@@ -23,7 +25,7 @@ function FlashcardSession({
     useState<FlashcardSessionState>('studying')
 
   const currentCard = cards[currentCardIndex]
-
+  const progress = ((currentCardIndex + 1) / cards.length) * 100
   function handleNextCard() {
     if (currentCardIndex < cards.length - 1) {
       setCurrentCardIndex((currentIndex) => currentIndex + 1)
@@ -64,9 +66,19 @@ function FlashcardSession({
 
       <h1>{deckTitle}</h1>
 
-      <p>
-        Carte {currentCardIndex + 1} / {cards.length}
-      </p>
+    <div className="session-progress">
+    <div className="session-progress-info">
+        <span>Progression</span>
+        <span>{currentCardIndex + 1} / {cards.length}</span>
+    </div>
+
+    <div className="progress-bar">
+        <div
+        className="progress-bar-fill"
+        style={{ width: `${progress}%` }}
+        />
+    </div>
+    </div>
 
       <Flashcard key={currentCard.id} card={currentCard} />
 
