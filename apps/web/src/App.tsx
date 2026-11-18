@@ -2,10 +2,21 @@ import './App.css'
 import FlashcardSession from './components/FlashcardSession/FlashcardSession'
 import { useState } from 'react'
 import Modal from './components/Modal/Modal'
-import CreateFlashcard from './components/CreateFlashcard/CreateFlashcard'
+import CreateFlashcard from './components/CreateFlashCard/CreateFlashcard'
 
 
-const decks = [
+type Deck = {
+  id: number
+  title: string
+  category: string
+  cards: number
+  progress: number
+  due: number
+  icon: string
+  color: string
+}
+
+const initialDecks: Deck[] = [
   {
     id: 1,
     title: 'Biologie moléculaire',
@@ -35,10 +46,23 @@ const decks = [
     due: 4,
     icon: '💻',
     color: 'orange',
+    
+  },
+    {
+    id: 4,
+    title: 'Présidents français',
+    category: 'CULTURE GENERALE',
+    cards: 24,
+    progress: 80,
+    due: 4,
+    icon: '👨🏻‍💼',
+    color: 'pink',
+    
   },
 ]
 
 function App() {
+  const [decks, setDecks] = useState<Deck[]>(initialDecks)
   const [activeDeck, setActiveDeck] = useState<number | null>(null)
   // Controls the visibility of the flashcard creation modal.
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
