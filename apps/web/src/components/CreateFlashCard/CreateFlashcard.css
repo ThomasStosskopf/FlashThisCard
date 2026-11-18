@@ -1,0 +1,49 @@
+
+.create-flashcard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-flashcard h1 {
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.create-flashcard form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-flashcard label {
+  color: var(--text);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.create-flashcard input,
+.create-flashcard select,
+.create-flashcard textarea {
+  width: 100%;
+  padding: 12px;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  resize: vertical;
+}
+
+.create-flashcard textarea:focus,
+.create-flashcard select:focus {
+  outline: 2px solid var(--purple);
+  border-color: transparent;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}

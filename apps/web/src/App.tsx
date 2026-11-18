@@ -1,6 +1,9 @@
 import './App.css'
 import FlashcardSession from './components/FlashcardSession/FlashcardSession'
 import { useState } from 'react'
+import Modal from './components/Modal/Modal'
+import CreateFlashcard from './components/CreateFlashcard/CreateFlashcard'
+
 
 const decks = [
   {
@@ -37,6 +40,8 @@ const decks = [
 
 function App() {
   const [activeDeck, setActiveDeck] = useState<number | null>(null)
+  // Controls the visibility of the flashcard creation modal.
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
     // Gestion de la session de révision
   if (activeDeck !== null) {
     const selectedDeck = decks.find((deck) => deck.id === activeDeck)
@@ -227,8 +232,8 @@ function App() {
               <h2>Une nouvelle chose à apprendre ?</h2>
               <p>Crée un paquet et transforme tes connaissances en cartes.</p>
             </div>
-            <button className="create-button" type="button">
-              Créer un paquet <span>＋</span>
+            <button className="create-button" type="button" onClick={() => setIsCreateModalOpen(true)}>
+              Créer de nouvelles cartes <span>＋</span>
             </button>
           </section>
 
@@ -238,6 +243,22 @@ function App() {
           </footer>
         </div>
       </section>
+      
+{isCreateModalOpen && (
+  <Modal onClose={() => setIsCreateModalOpen(false)}>
+    <CreateFlashcard
+      decks={decks.map((deck) => ({
+        id: deck.id,
+        title: deck.title,
+      }))}
+      onCreate={(card) => {
+        console.log('New flashcard:', card)
+        setIsCreateModalOpen(false)
+      }}
+      onCancel={() => setIsCreateModalOpen(false)}
+    />
+  </Modal>
+)}
     </main>
   )
 }

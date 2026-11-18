@@ -88,6 +88,7 @@ function FlashcardSession({
   handleNextCard()
 }
 
+// end of session 
 if (sessionState === 'completed') {
   return (
     <section className="session-completed">
