@@ -50,3 +50,128 @@
   background-color: var(--surface-hover);
   transform: translateY(-2px);
 }
+
+/* Session completion screen */
+
+.session-completed {
+  width: 100%;
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 32px;
+  text-align: center;
+}
+
+.completion-header {
+  margin-bottom: 36px;
+}
+
+.completion-icon {
+  display: block;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.completion-header h1 {
+  color: var(--text);
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.completion-header p {
+  color: var(--muted);
+}
+
+.completion-deck {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--purple);
+  font-size: 14px;
+}
+
+.completion-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.summary-value {
+  color: var(--purple);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.summary-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.rating-summary {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.rating-summary h2 {
+  color: var(--text);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.rating-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.rating-summary-item:last-child {
+  border-bottom: none;
+}
+
+.rating-summary-item strong {
+  color: var(--text);
+}
+
+.completion-exit-button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: var(--purple);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.completion-exit-button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .completion-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .session-completed {
+    padding: 20px;
+    margin: 30px auto;
+  }
+}

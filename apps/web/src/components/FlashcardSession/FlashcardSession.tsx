@@ -48,6 +48,21 @@ function FlashcardSession({
   // Calculates the session progress as a percentage.
   // Adds 1 to the index to get the actual card number.
   const progress = ((currentCardIndex + 1) / cards.length) * 100
+  
+  // Calculate the total number of reviewed cards.
+  const totalReviewed = Object.values(ratings).reduce(
+  (total, count) => total + count,
+  0,
+)
+
+// Calculate the number of cards that need further review.
+  const difficultCards = ratings.again + ratings.hard
+
+// Calculate the percentage of cards answered successfully.
+  const successRate =
+  totalReviewed > 0
+    ? Math.round((ratings.good + ratings.easy) / totalReviewed * 100)
+    : 0
 
   // Moves to the next flashcard or completes the session
   // if the current card is the last one.
@@ -73,17 +88,67 @@ function FlashcardSession({
   handleNextCard()
 }
 
-  if (sessionState === 'completed') {
-    return (
-      <section>
-        <h1>Session terminée ! 🎉</h1>
-        <p>Tu as révisé {cards.length} cartes dans {deckTitle}.</p>
-        <button type="button" onClick={onExit}>
-          Retour au tableau de bord
-        </button>
-      </section>
-    )
-  }
+if (sessionState === 'completed') {
+  return (
+    <section className="session-completed">
+      <div className="completion-header">
+        <span className="completion-icon">🎉</span>
+        <h1>Session completed!</h1>
+        <p>Great job! You've finished your review session.</p>
+        <span className="completion-deck">{deckTitle}</span>
+      </div>
+
+      <div className="completion-summary">
+        <div className="summary-card">
+          <span className="summary-value">{totalReviewed}</span>
+          <span className="summary-label">Cards reviewed</span>
+        </div>
+
+        <div className="summary-card">
+          <span className="summary-value">{successRate}%</span>
+          <span className="summary-label">Success rate</span>
+        </div>
+
+        <div className="summary-card">
+          <span className="summary-value">{difficultCards}</span>
+          <span className="summary-label">Need more practice</span>
+        </div>
+      </div>
+
+      <div className="rating-summary">
+        <h2>Rating breakdown</h2>
+
+        <div className="rating-summary-item">
+          <span>Again</span>
+          <strong>{ratings.again}</strong>
+        </div>
+
+        <div className="rating-summary-item">
+          <span>Hard</span>
+          <strong>{ratings.hard}</strong>
+        </div>
+
+        <div className="rating-summary-item">
+          <span>Good</span>
+          <strong>{ratings.good}</strong>
+        </div>
+
+        <div className="rating-summary-item">
+          <span>Easy</span>
+          <strong>{ratings.easy}</strong>
+        </div>
+      </div>
+
+      <button
+        className="completion-exit-button"
+        type="button"
+        onClick={onExit}
+      >
+        Back to dashboard →
+      </button>
+    </section>
+  )
+}
 
   if (cards.length === 0) {
     return (
